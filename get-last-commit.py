@@ -22,22 +22,16 @@ last_commit = response.json()[0]
 commit_date = datetime.strptime(last_commit['commit']['committer']['date'], "%Y-%m-%dT%H:%M:%SZ")
 formatted_date = commit_date.strftime("%Y-%m-%d")
 
-# 获取本页面更新日期
-current_date = datetime.now().strftime("%Y-%m-%d")
+# 提取提交哈希值的前七位
+commit_sha_short = last_commit['sha'][:7]
+
+# # 获取本页面更新日期
+# current_date = datetime.now().strftime("%Y-%m-%d")
 
 # 构建 HTML 内容
 html_content = f"""
-<html>
-<head>
-    <title>最后一次提交信息</title>
-</head>
-<body>
-    <h1>最后一次提交信息</h1>
-    <p>本页面更新日期: {current_date}</p>
-    <p>最后提交日期: {formatted_date}</p>
-    <p>最后提交哈希值: {last_commit['sha']}</p>
-</body>
-</html>
+更新日期: {formatted_date}
+更新哈希值: {commit_sha_short}
 """
 
 # 将 HTML 内容写入 index.html 文件
