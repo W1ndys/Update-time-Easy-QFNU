@@ -29,8 +29,7 @@ commit_sha_short = last_commit['sha'][:7]
 # current_date = datetime.now().strftime("%Y-%m-%d")
 
 # 构建 HTML 内容
-html_content = f"""
-更新日期: {formatted_date}
+html_content = f"""更新日期: {formatted_date}
 更新哈希值: {commit_sha_short}
 """
 
