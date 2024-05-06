@@ -17,8 +17,8 @@ jobs:
     
     steps:
     - uses: actions/checkout@v3
-      with:
-        repository: W1ndys/Easy-QFNU
+      # with:
+      #   repository: W1ndys/Easy-QFNU
         
     - name: Set up Python
       uses: actions/setup-python@v4
