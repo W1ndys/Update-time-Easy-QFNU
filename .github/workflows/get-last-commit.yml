@@ -1,0 +1,28 @@
+name: Get Last Commit
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+
+  get-last-commit:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: 3.9
+    - name: Install dependencies
+      run: python -m pip install requests
+    - name: Get last commit
+      run: python get_last_commit.py
+    - name: Commit and push index.html
+      run: |
+        git config --global user.email "w1ndys@outlook.com"
+        git config --global user.name "W1ndys"
+        git add index.html
+        git commit -m "Update index.html with last commit info"
+        git push
