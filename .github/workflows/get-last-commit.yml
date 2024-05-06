@@ -1,6 +1,8 @@
 name: Get Last Commit
 
 on:
+  schedule:
+    - cron: '*/10 * * * *'  # 每隔十分钟运行一次
   workflow_dispatch:  # 手动触发器
   push:
     branches: [ main ]
@@ -24,14 +26,23 @@ jobs:
       uses: actions/setup-python@v4
       with:
         python-version: 3.9
+        
     - name: Install dependencies
       run: python -m pip install requests
+      
     - name: Get last commit
       run: python get-last-commit.py
-    - name: Commit and push index.html
+
+    - name: Check for changes
+      id: check_changes
       run: |
-        git config --global user.email "w1ndys@outlook.com"
-        git config --global user.name "W1ndys"
-        git add index.html
-        git commit -m "Update index.html with last commit info"
-        git push
+        git add .
+        if [ -n "$(git status --porcelain)" ]; then
+          echo "CHANGES=true" >> $GITHUB_ENV
+        fi
+          
+    - name: Commit and push changes
+      if: env.CHANGES == 'true'
+      uses: stefanzweifel/git-auto-commit-action@v4
+      with:
+        commit_message: Automatically update
