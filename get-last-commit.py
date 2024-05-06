@@ -28,11 +28,15 @@ commit_sha_short = last_commit['sha'][:7]
 # # 获取本页面更新日期
 # current_date = datetime.now().strftime("%Y-%m-%d")
 
+# 构建提交的链接
+commit_url = last_commit['html_url']
+
 # 构建 HTML 内容
 html_content = f"""更新日期: {formatted_date}
-更新哈希值: {commit_sha_short}
+更新哈希值: <a href="{commit_url}">{commit_sha_short}</a>
 """
 
 # 将 HTML 内容写入 index.html 文件
 with open("index.html", "w", encoding="utf-8") as f:
     f.write(html_content)
+
