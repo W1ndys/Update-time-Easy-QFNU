@@ -32,8 +32,7 @@ commit_sha_short = last_commit['sha'][:7]
 commit_url = last_commit['html_url']
 
 # 构建 HTML 内容
-html_content = f"""更新日期: {formatted_date}
-更新哈希值: <a href="{commit_url}">{commit_sha_short}</a>
+html_content = f"""更新日期: {formatted_date} | 更新哈希值: <a href="{commit_url}">{commit_sha_short}</a>
 """
 
 # 将 HTML 内容写入 index.html 文件
