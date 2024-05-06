@@ -1,8 +1,9 @@
 name: Get Last Commit
 
 on:
+  workflow_dispatch:  # 手动触发器
   push:
-    repositories:
+    仓库:
       - W1ndys/Easy-QFNU
       
 permissions:
