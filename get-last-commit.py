@@ -32,50 +32,12 @@ commit_url = last_commit['html_url']
 # 构建 HTML1 内容
 html_content1 = f"""<!DOCTYPE html>
 <html lang="zh">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Easy-QFNU 最后一次更新</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-
-        .container {
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-
-        h1 {
-            margin-top: 0;
-        }
-
-        p {
-            font-size: 18px;
-            margin-bottom: 20px;
-        }
-
-        a {
-            color: #007bff;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
     <div class="container">
         <h1>Easy-QFNU 最后一次更新</h1>
@@ -83,7 +45,6 @@ html_content1 = f"""<!DOCTYPE html>
         <p>相关链接: <a href="https://github.com/W1ndys/Easy-QFNU">GitHub 仓库</a>、<a href="https://Easy-QFNU.top">Easy-QFNU官网</a></p>
     </div>
 </body>
-
 </html>
 """
 
