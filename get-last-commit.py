@@ -1,5 +1,5 @@
 import requests
-from datetime import datetime
+from datetime import datetime, timedelta
 
 # GitHub 仓库信息
 REPO_OWNER = "W1ndys"
@@ -19,14 +19,12 @@ response.raise_for_status()
 last_commit = response.json()[0]
 
 # 格式化日期为 yyyy-mm-dd 格式
-commit_date = datetime.strptime(last_commit['commit']['committer']['date'], "%Y-%m-%dT%H:%M:%SZ")
-formatted_date = commit_date.strftime("%Y-%m-%d")
+commit_date_utc = datetime.strptime(last_commit['commit']['committer']['date'], "%Y-%m-%dT%H:%M:%SZ")
+commit_date_utc8 = commit_date_utc + timedelta(hours=8)  # 转换为 UTC+8 时间
+formatted_date = commit_date_utc8.strftime("%Y-%m-%d")
 
 # 提取提交哈希值的前七位
 commit_sha_short = last_commit['sha'][:7]
-
-# # 获取本页面更新日期
-# current_date = datetime.now().strftime("%Y-%m-%d")
 
 # 构建提交的链接
 commit_url = last_commit['html_url']
@@ -38,4 +36,3 @@ html_content = f"""更新日期: {formatted_date} | 更新哈希值: <a href="{c
 # 将 HTML 内容写入 index.html 文件
 with open("index.html", "w", encoding="utf-8") as f:
     f.write(html_content)
-
