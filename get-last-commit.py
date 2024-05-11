@@ -1,3 +1,4 @@
+import os
 import requests
 from datetime import datetime, timedelta
 
@@ -5,16 +6,26 @@ from datetime import datetime, timedelta
 REPO_OWNER = "W1ndys"
 REPO_NAME = "Easy-QFNU"
 
+# 从环境变量中获取 GitHub 令牌
+github_token = os.environ.get("GITHUB_TOKEN")
+if github_token is None:
+    raise ValueError("GitHub token not found in environment variables")
+
+# 构建请求头
+headers = {
+    "Authorization": f"token {github_token}"
+}
+
 # 获取仓库信息
 repo_url = f"https://api.github.com/repos/{REPO_OWNER}/{REPO_NAME}"
-response = requests.get(repo_url)
+response = requests.get(repo_url, headers=headers)
 response.raise_for_status()
 repo_info = response.json()
 
 # 获取最后一次提交信息
 commits_url = repo_info["commits_url"]
 last_commit_url = f"{commits_url.split('{/sha}')[0]}?per_page=1"
-response = requests.get(last_commit_url)
+response = requests.get(last_commit_url, headers=headers)
 response.raise_for_status()
 last_commit = response.json()[0]
 
