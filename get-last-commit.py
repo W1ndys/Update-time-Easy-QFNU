@@ -8,8 +8,6 @@ REPO_NAME = "Easy-QFNU"
 
 # 从环境变量中获取 GitHub 令牌
 github_token = os.environ.get("GITHUB_TOKEN")
-if github_token is None:
-    raise ValueError("GitHub token not found in environment variables")
 
 # 构建请求头
 headers = {
