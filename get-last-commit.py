@@ -60,8 +60,7 @@ html_content1 = f"""<!DOCTYPE html>
 """
 
 # 构建 HTML2 内容
-html_content2 = f"""更新日期: {formatted_date} | 更新哈希值: <a href="{commit_url}">{commit_sha_short}</a>
-(该数据有十分钟以内的延迟)
+html_content2 = f"""更新日期: {formatted_date} | 更新哈希值: <a href="{commit_url}">{commit_sha_short}</a><br/>(该数据有十分钟以内的延迟)
 """
 
 # 将 HTML 内容写入 更新日期主页文件
