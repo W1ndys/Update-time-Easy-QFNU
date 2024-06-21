@@ -2,7 +2,7 @@ name: Get Last Commit
 
 on:
   schedule:
-    - cron: '*/1 * * * *'  # 每隔一分钟运行一次
+    - cron: '*/5 * * * *'  # 每隔五分钟运行一次
   workflow_dispatch:  # 手动触发器
   push:
     branches: [ main ]
