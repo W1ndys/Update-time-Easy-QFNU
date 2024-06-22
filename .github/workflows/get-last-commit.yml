@@ -47,4 +47,4 @@ jobs:
       if: env.CHANGES == 'true'
       uses: stefanzweifel/git-auto-commit-action@v4
       with:
-        commit_message: 自动更新日期执行成功（扫描间隔:五分钟）
+        commit_message: 自动更新日期执行成功(扫描间隔:10分钟)
