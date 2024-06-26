@@ -52,7 +52,7 @@ html_content1 = f"""<!DOCTYPE html>
 <body>
     <div class="container">
         <h1>Easy-QFNU 更新记录</h1>
-        <p>更新日期: {formatted_date} | 更新哈希值: <a href="{commit_url}">{commit_sha_short}(该数据有十分钟以内的延迟)</a></p>
+        <p>更新日期: {formatted_date} | 更新哈希值: <a href="{commit_url}">{commit_sha_short}</a> <a>(该数据有十分钟以内的延迟)</a></p>
         <p>相关链接: <a href="https://github.com/W1ndys/Easy-QFNU">GitHub 仓库</a>、<a href="https://Easy-QFNU.top">Easy-QFNU官网</a></p>
     </div>
 </body>
@@ -60,7 +60,7 @@ html_content1 = f"""<!DOCTYPE html>
 """
 
 # 构建 HTML2 内容
-html_content2 = f"""更新日期: {formatted_date} | 更新哈希值: <a href="{commit_url}">{commit_sha_short}</a><br/>(该数据有十分钟以内的延迟)
+html_content2 = f"""更新日期: {formatted_date} | 更新哈希值: <a href="{commit_url}">{commit_sha_short}</a><br/><a style="align: center;">(该数据有十分钟以内的延迟)</a>
 """
 
 # 将 HTML 内容写入 更新日期主页文件
