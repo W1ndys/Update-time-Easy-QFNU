@@ -33,3 +33,8 @@ a {
 a:hover {
     text-decoration: underline;
 }
+
+:root {
+    --md-text-font: "Noto Sans SC";
+    --md-code-font: "Fira Code";
+}
